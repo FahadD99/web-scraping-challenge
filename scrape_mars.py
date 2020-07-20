@@ -80,12 +80,12 @@ def scrape():
     html = browser.html
     # Parse HTML with Beautiful Soup
     soup = bs(html, 'html.parser')
-    # Retrieve all elements that contain hemisphere information
+    # Retrieve all elements that contain hemisphere information - thank you for showing my how to do this Dan.
     desc_list = soup.find_all(class_='description')
     # Use a list comprehension to extract the name of each hemisphere
     hemisphere_names = [desc.find('h3').text.replace(' Enhanced','') for desc in desc_list]
     
-    # Create an empty list to contain all hemisphere dictionaries
+    # Create an empty list to contain all hemisphere dictionaries - thank you for the idea Dan, much appreciated
     hemisphere_image_urls  = []
     # Create a for-loop that retrieves each hemisphere name and its corresponding image and inserts them into a dictionary
     for name in hemisphere_names:
